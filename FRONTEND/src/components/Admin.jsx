@@ -135,7 +135,7 @@ let Admin = () =>{
           </div>}
           {/*Camping Gear*/}
           <center className="text-mono text-5xl font-bold">Camping Gear</center>
-          <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[405px] right-7"/>
+          <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[405px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/campinggear")}/>
           <div className="overflow-x-auto w-full">
           <div className="flex gap-6 p-4 w-max mt-4">
             {campinggear?.map((card, index) => (
@@ -158,7 +158,7 @@ let Admin = () =>{
         </div>
          {/*Winter Wear*/}
          <center className="text-mono text-5xl font-bold">Winter Wear</center>
-         <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[945px] right-7"/>
+         <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[945px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/winterwear")}/>
           <div className="overflow-x-auto w-full">
           <div className="flex gap-6 p-4 w-max mt-4">
             {winterwear?.map((card, index) => (
@@ -181,7 +181,7 @@ let Admin = () =>{
          
         {/* Cameras */}
         <center className="text-mono text-5xl font-bold">Cameras</center>
-        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[1475px] right-7"/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[1475px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/cameras")}/>
           <div className="overflow-x-auto w-full">
           <div className="flex gap-6 p-4 w-max mt-4">
             {cameras?.map((card, index) => (
@@ -204,7 +204,7 @@ let Admin = () =>{
 
         {/* Gaming Console */}
         <center className="text-mono text-5xl font-bold">Gaming Console</center>
-        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[2005px] right-7"/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[2005px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/gamingconsole")}/>
           <div className="overflow-x-auto w-full">
             <div className="flex gap-6 p-4 w-max mt-4">
               {gamingconsole?.map((card, index) => (
@@ -227,7 +227,7 @@ let Admin = () =>{
 
           {/* Creator Gear */}
         <center className="text-mono text-5xl font-bold">Creator Gear</center>
-        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[2535px] right-7"/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[2535px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/creatorgear")}/>
           <div className="overflow-x-auto w-full">
             <div className="flex gap-6 p-4 w-max mt-4">
               {creatorgear?.map((card, index) => (
@@ -250,7 +250,7 @@ let Admin = () =>{
 
            {/* Trekking Gear */}
         <center className="text-mono text-5xl font-bold">Trekking Gear</center>
-        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[3070px] right-7"/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[3070px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/trekkinggear")}/>
           <div className="overflow-x-auto w-full">
             <div className="flex gap-6 p-4 w-max mt-4">
               {trekkinggear?.map((card, index) => (
@@ -273,7 +273,7 @@ let Admin = () =>{
           
            {/* Audio Visual Equipments */}
         <center className="text-mono text-5xl font-bold">Audio Visual Equipments</center>
-        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[3610px] right-7"/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[3610px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/audiovisualequipment")}/>
           <div className="overflow-x-auto w-full">
             <div className="flex gap-6 p-4 w-max mt-4">
               {audio?.map((card, index) => (

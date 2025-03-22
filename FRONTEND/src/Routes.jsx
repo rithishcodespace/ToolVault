@@ -9,7 +9,8 @@ import Header from "./components/Header";
 import About from "./components/About";
 import Cart from "./components/Cart";
 import Editcard from "./components/Editcard";
-import FilteredHome from "./components/FilteredHome"
+import FilteredHome from "./components/FilteredHome";
+import Addcard from "./components/Addcard";
 
 const AppRoutes = () => {
   return (
@@ -78,6 +79,14 @@ const AppRoutes = () => {
               <Header/><br /><br /><br /><br />
               <FilteredHome/>
             </ProtectedRoute> 
+          }
+        />
+        <Route
+          path="/client/addcard/:table"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <Addcard/>
+            </ProtectedRoute>
           }
         />
       </Routes>
