@@ -16,6 +16,40 @@ let Cart = () =>{
         fetchdata()
     },[])
 
+    async function increaseNeededStock(id,table)
+    {
+      const response = await axios.patch(`http://localhost:1234/addCartItemsCount/${table}/${id}`,{
+        headers:{"Content-Type":"application/json"}
+      },)
+      if(response.status === 200)
+      {
+        console.log("stock items count increased successfully!")
+        setcartdata(prevCart =>
+          prevCart.map(item =>
+            item.id === id ? { ...item, stock: item.stock + 1 } : item
+          )
+        );
+      }
+      else console.log("can't increase")
+    }
+
+    async function decreaseNeededStock(id,table)
+    {
+      const response = await axios.patch(`http://localhost:1234/removeCartItemsCount/${table}/${id}`,{
+        headers:{"Content-Type":"application/json"}
+      },)
+      if(response.status === 200)
+      {
+        console.log("stock items count decreased successfully!")
+        setcartdata(prevCart =>
+          prevCart.map(item =>
+            item.id === id ? { ...item, stock: item.stock - 1 } : item
+          )
+        );
+      }
+      else console.log("can't decrease")
+    }
+
     return(
         <div>
             <center className="text-4xl font-serif mt-23">My Cart</center>
@@ -24,8 +58,7 @@ let Cart = () =>{
                cartdata.map((card, index) => (
                 <div
                   key={index}
-                  className="w-[900px] p-4 bg-white border-b border-blue-950 flex flex-row items-center gap-10 shadow-md rounded-lg"
-                >
+                  className="w-[1100px] p-4 bg-white border-b border-blue-950 flex flex-row items-center gap-10 shadow-md rounded-lg">
 
                   <div className="flex items-center gap-4">
                     <img src={card.img} className="h-52 w-auto rounded-lg" />
@@ -34,7 +67,16 @@ let Cart = () =>{
               
                   <p className="w-60 text-sm text-gray-600">{card.details}</p>
               
-                  <p className="text-xl font-bold text-blue-700">$123</p>
+                  <p className="text-xl font-bold text-blue-700">₹{card.rate}</p>
+
+                  {/* Quantity */}
+                  <div className="pt-2 pb-2 pl-5">
+                    <button className="text-3xl cursor-pointer bg-blue-200 active:bg-blue-500 inline hover:bg-black hover:text-white w-12 h-12 rounded-xl" onClick={()=>increaseNeededStock(card.id,card.Tablename)}>+</button>
+                      <p className="text-xl inline p-4">{card.stock}</p>
+                    <button className="text-3xl inline bg-blue-200 active:bg-blue-500 cursor-pointer hover:bg-black hover:text-white w-12 h-12  rounded-xl" onClick={()=>decreaseNeededStock(card.id,card.Tablename)}>-</button>
+                  </div><br />
+
+                  <p className="text-xl font-bold text-blue-700">₹{card.rate * card.stock}</p>
                 </div>
               ))   
             }

@@ -4,7 +4,7 @@ const db = require("../database");
 
 postRoute.post("/addtocart",(req,res)=>{
     try{
-      let sql = "insert into cart values (?,?,?,?,?)";
+      let sql = "insert into cart(id,img,name,details,tablename) values (?,?,?,?,?)";
       const values = [req.body.id,req.body.img,req.body.name,req.body.details,req.body.tablename];
       db.query(sql,values,(error,result)=>{
         if(error)res.status(500).send("item cannot be added to cart"); 

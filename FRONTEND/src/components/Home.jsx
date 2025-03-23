@@ -2,7 +2,8 @@ import { useEffect,useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
-import {searchedCards} from "../utils/searchSlice"
+import {searchedCards} from "../utils/searchSlice";
+import RevealOnScroll from "./RevealOnScroll"
 
 let Home = () =>{
 
@@ -116,7 +117,7 @@ let Home = () =>{
     },[selector.searchItem])
 
     return(
-        <div>
+        <div className="relative top-24">
           <center className="relative top-4.5">
             <span className="text-blue-700 text-5xl font-bold">EXPERIENCE</span>&nbsp;
             <span className="inline text-5xl font-bold">MORE,</span>&nbsp;
@@ -125,162 +126,239 @@ let Home = () =>{
           </center>
           {/*Like to Rent*/}
           {LIKETORENT && <div className="overflow-x-auto w-full mt-10 ">
-            <div className="flex gap-6 p-4 w-max">
-              {LIKETORENT.map((card, index) => (
-                <div 
-                  key={index} 
-                  className="h-64 cursor-pointer w-48 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform hover:scale-105"
-                >
-                  <img src={card.img} className="h-36 w-36 object-cover rounded-md" alt={card.title} />
-                  <p className="text-gray-800 font-semibold text-center mt-2">{card.title}</p>
-                </div>
-              ))}
-            </div>
+            {/* <RevealOnScroll> */}
+              <div className="flex gap-6 p-4 w-max overflow-y-hidden">
+                {LIKETORENT.map((card, index) => (
+                  <RevealOnScroll>
+                <a href={`#${card.title.replace(/\s+/g, "-")}`}>
+                    <div 
+                      key={index} 
+                      className="h-64 cursor-pointer w-48 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform hover:scale-105"
+                    >
+                      <img src={card.img} className="h-36 w-36 object-cover rounded-md" alt={card.title} />
+                      <p className="text-gray-800 font-semibold text-center mt-2">{card.title}</p>
+                    </div>
+                </a>
+                  </RevealOnScroll>
+                ))}
+              </div>
+            {/* </RevealOnScroll> */}
           </div>}
           {/*Camping Gear*/}
-          <center className="text-mono text-5xl font-bold">Camping Gear</center>
+          <RevealOnScroll>
+            <center id="Camping-Gear" className="text-mono text-5xl font-bold scroll-mt-38">Camping Gear</center>
+          </RevealOnScroll>
           <div className="overflow-x-auto w-full">
-          <div className="flex gap-6 p-4 w-max mt-4">
+            <RevealOnScroll>
+          <div className="flex gap-6 p-4 w-max mt-4 overflow-y-hidden">
             {campinggear?.map((card, index) => (
-              <div
-                key={index}
-                className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-600 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
-              >
-                <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
-                <p className="text-gray-800 font-semibold text-center  mt-2 mb-2 line-clamp-2">{card.name}</p>
-                <div className="h-20"><p className="font-mono text-sm">{card.details}</p></div>
-                <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleCampingGearAbout(card.id)}>View Rent</button>
-              </div>
+              <RevealOnScroll>
+                <div
+                  key={index}
+                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-600 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                >
+                  <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
+                  <p className="text-gray-800 font-semibold text-center  mt-2 mb-2 line-clamp-2">{card.name}</p>
+                  <div className="h-20"><p className="font-mono text-sm">{card.details}</p></div>
+                  <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleCampingGearAbout(card.id)}>View Rent</button>
+                </div>
+              </RevealOnScroll>
             ))}
           </div>
+            </RevealOnScroll>
         </div>
          {/*Winter Wear*/}
-         <center className="text-mono text-5xl font-bold">Winter Wear</center>
+         <RevealOnScroll>
+           <center id="Winter-Wear" className="text-mono text-5xl font-bold scroll-mt-38">Winter Wear</center>
+          </RevealOnScroll>
           <div className="overflow-x-auto w-full">
-          <div className="flex gap-6 p-4 w-max mt-4">
+          <RevealOnScroll>
+          <div className="flex gap-6 p-4 overflow-y-hidden w-max mt-4">
             {winterwear?.map((card, index) => (
-              <div
-                key={index}
-                className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
-              >
-                <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
-                <p className="text-gray-800 font-semibold mb-2 text-center mt-2">{card.name}</p>
-                <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
-                <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleWinterWearAbout(card.id)}>View Rent</button>
-              </div>
+              <RevealOnScroll>
+                <div
+                  key={index}
+                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                >
+                  <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
+                  <p className="text-gray-800 font-semibold mb-2 text-center mt-2">{card.name}</p>
+                  <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
+                  <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleWinterWearAbout(card.id)}>View Rent</button>
+                </div>
+              </RevealOnScroll>
             ))}
           </div>
+          </RevealOnScroll>
         </div>
          
         {/* Cameras */}
-        <center className="text-mono text-5xl font-bold">Cameras</center>
+        <RevealOnScroll>
+           <center id="Cameras" className="text-mono text-5xl font-bold scroll-mt-38">Cameras</center>
+        </RevealOnScroll>
           <div className="overflow-x-auto w-full">
-          <div className="flex gap-6 p-4 w-max mt-4">
+          <RevealOnScroll>
+          <div className="flex overflow-y-hidden gap-6 p-4 w-max mt-4">
             {cameras?.map((card, index) => (
-              <div
-                key={index}
-                className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
-              >
-                <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
-                <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
-                <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
-                <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleCamerasAbout(card.id)}>View Rent</button>
-              </div>
+              <RevealOnScroll>
+                <div
+                  key={index}
+                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                >
+                  <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
+                  <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
+                  <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
+                  <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleCamerasAbout(card.id)}>View Rent</button>
+                </div>
+              </RevealOnScroll>
             ))}
           </div>
+          </RevealOnScroll>
         </div>
 
         {/* Gaming Console */}
-        <center className="text-mono text-5xl font-bold">Gaming Console</center>
+        <RevealOnScroll>
+           <center id="Gaming-Console" className="text-mono text-5xl font-bold scroll-mt-38">Gaming Console</center>
+        </RevealOnScroll>
           <div className="overflow-x-auto w-full">
-            <div className="flex gap-6 p-4 w-max mt-4">
+          <RevealOnScroll>
+            <div className="flex overflow-y-hidden gap-6 p-4 w-max mt-4">
               {gamingconsole?.map((card, index) => (
-                <div
-                  key={index}
-                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
-                >
-                  <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
-                  <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
-                  <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
-                  <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleGamingConsoleAbout(card.id)}>View Rent</button>
-                </div>
+                <RevealOnScroll>
+                  <div
+                    key={index}
+                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  >
+                    <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
+                    <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
+                    <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
+                    <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleGamingConsoleAbout(card.id)}>View Rent</button>
+                  </div>
+                </RevealOnScroll>
               ))}
             </div>
+          </RevealOnScroll>
           </div>
 
           {/* Creator Gear */}
-        <center className="text-mono text-5xl font-bold">Creator Gear</center>
+          <RevealOnScroll>
+            <center id="Creator-Gear" className="text-mono text-5xl font-bold scroll-mt-38">Creator Gear</center>
+          </RevealOnScroll>
           <div className="overflow-x-auto w-full">
-            <div className="flex gap-6 p-4 w-max mt-4">
+          <RevealOnScroll>
+            <div className="flex overflow-y-hidden gap-6 p-4 w-max mt-4">
               {creatorgear?.map((card, index) => (
-                <div
-                  key={index}
-                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
-                >
-                  <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
-                  <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
-                  <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
-                  <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleCreatorGearAbout(card.id)}>View Rent</button>
-                </div>
+                <RevealOnScroll>
+                  <div
+                    key={index}
+                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  >
+                    <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
+                    <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
+                    <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
+                    <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleCreatorGearAbout(card.id)}>View Rent</button>
+                  </div>
+                </RevealOnScroll>
               ))}
             </div>
+          </RevealOnScroll>
           </div>
 
-           {/* Trekking Gear */}
-        <center className="text-mono text-5xl font-bold">Trekking Gear</center>
+           {/* Trecking Gear */}
+           <RevealOnScroll>
+              <center id="Trekking-Gear" className="text-mono text-5xl font-bold scroll-mt-38">Trekking Gear</center>
+           </RevealOnScroll>
           <div className="overflow-x-auto w-full">
-            <div className="flex gap-6 p-4 w-max mt-4">
+          <RevealOnScroll>
+            <div className="flex overflow-y-hidden gap-6 p-4 w-max mt-4">
               {trekkinggear?.map((card, index) => (
-                <div
-                  key={index}
-                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
-                >
-                  <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
-                  <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
-                  <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
-                  <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleTrekkingGearAbout(card.id)}>View Rent</button>
-                </div>
+                <RevealOnScroll>
+                  <div
+                    key={index}
+                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  >
+                    <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
+                    <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
+                    <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
+                    <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleTrekkingGearAbout(card.id)}>View Rent</button>
+                  </div>
+                </RevealOnScroll>
               ))}
             </div>
+          </RevealOnScroll>
           </div>
           
            {/* Audio Visual Equipments */}
-        <center className="text-mono text-5xl font-bold">Audio Visual Equipments</center>
+           <RevealOnScroll>
+             <center id="Audio-Visual-Equipment" className="text-mono text-5xl font-bold scroll-mt-38">Audio Visual Equipments</center>
+           </RevealOnScroll>
           <div className="overflow-x-auto w-full">
-            <div className="flex gap-6 p-4 w-max mt-4">
+          <RevealOnScroll>
+            <div className="flex overflow-y-hidden gap-6 p-4 w-max mt-4">
               {audio?.map((card, index) => (
-                <div
-                  key={index}
-                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
-                >
-                  <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
-                  <p className="text-gray-800 mb-2 font-semibold line-clamp-2 text-center mt-2">{card.name}</p>
-                  <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
-                  <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleVisualEquipmentsAbout(card.id)}>View Rent</button>
-                </div>
+                <RevealOnScroll>
+                  <div
+                    key={index}
+                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  >
+                    <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
+                    <p className="text-gray-800 mb-2 font-semibold line-clamp-2 text-center mt-2">{card.name}</p>
+                    <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
+                    <button className="bg-yellow-200 cursor-pointer w-24 rounded-lg h-10 mt-2" onClick={()=>handleVisualEquipmentsAbout(card.id)}>View Rent</button>
+                  </div>
+                </RevealOnScroll>
               ))}
             </div>
+          </RevealOnScroll>
           </div>
+          <RevealOnScroll>
+            <div className="text-gray-700 bg-slate-200 h-[350px]  w-screen pl-12 pt-10">
+              <p className="font-semibold text-2xl text-black">Welcome to Sharepal </p><br />
+              <p className="font-serif text-sm">
+              India, one of the best countries to live in the world. It’s a country which is well known for its culture and cuisine. SharePal is a rental startup for all your lifestyle needs. Be it travel, photography, entertainment or fitness, you can rent all the latest products.
+              </p>
+              <br />
+              <p className="font-serif text-sm">
+              SharePal is a leading rental platform with a pan-India presence. We offer Trekking Gear, Riding Gear, DSLR Camera, GoPro Camera, PS4 Console, Xbox Console, PS4 Games on rent in Chennai.
+              </p><br />
+              <p className="font-serif text-sm">
+              SharePal makes it easier for you to rent from us. All you need to do is choose the product whatever you need, add them to your cart, and check out. Rental products will be delivered to your home with full safety measures.
+              </p><br />
+              <p className="font-serif text-sm">
+              We offer rental services all over India like Chennai, Hyderabad, Bangalore, Mumbai, Delhi, Kolkata, Pune, Gandhinagar, Faridabad, Ahmedabad and many more places.
+              </p>
+            </div>
+          </RevealOnScroll>
 
-          <div className="text-gray-700 bg-slate-200 h-[350px] w-screen pl-12 pt-10">
-            <p className="font-semibold text-2xl text-black">Welcome to Sharepal </p><br />
-             <p className="font-serif text-sm">
-             India, one of the best countries to live in the world. It’s a country which is well known for its culture and cuisine. SharePal is a rental startup for all your lifestyle needs. Be it travel, photography, entertainment or fitness, you can rent all the latest products.
-             </p>
-             <br />
-             <p className="font-serif text-sm">
-             SharePal is a leading rental platform with a pan-India presence. We offer Trekking Gear, Riding Gear, DSLR Camera, GoPro Camera, PS4 Console, Xbox Console, PS4 Games on rent in Chennai.
-             </p><br />
-             <p className="font-serif text-sm">
-             SharePal makes it easier for you to rent from us. All you need to do is choose the product whatever you need, add them to your cart, and check out. Rental products will be delivered to your home with full safety measures.
-             </p><br />
-             <p className="font-serif text-sm">
-             We offer rental services all over India like Chennai, Hyderabad, Bangalore, Mumbai, Delhi, Kolkata, Pune, Gandhinagar, Faridabad, Ahmedabad and many more places.
-             </p>
-          </div>
-
-          <div className="h-[420px] w-screen bg-blue-950">
-
+          <div className="h-[420px] w-screen bg-blue-950 flex ">
+            <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-36">
+              <p className="text-3xl text-white font-mono underline">ToolVault</p>
+              <p className="text-white text-xl">About us</p>
+              <p className="text-white text-xl">Why ToolVault</p>
+              <p className="text-white text-xl">Careers</p>
+              <p className="text-white text-xl">Sitemap</p>
+            </div>
+            <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-[500px]">
+              <p className="text-3xl text-white font-mono underline">Information</p>
+              <p className="text-white text-xl">How it works</p>
+              <p className="text-white text-xl">FAQs</p>
+              <p className="text-white text-xl">Verification</p>
+              <p className="text-white text-xl">Refund Process</p>
+              <p className="text-white text-xl">Cancellation Policy</p>
+            </div>
+            <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-[900px]">
+              <p className="text-3xl text-white font-mono underline">Policies</p>
+              <p className="text-white text-xl">Rental Terms & Conditions</p>
+              <p className="text-white text-xl">Shipping Policy</p>
+              <p className="text-white text-xl">Damage Policy</p>
+              <p className="text-white text-xl">Terms of Use</p>
+              <p className="text-white text-xl">Privacy Policy</p>
+            </div>
+            <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-[1250px]">
+              <p className="text-3xl text-white font-mono underline">Need Help?</p>
+              <p className="text-white text-xl">Contact +91 9952252304</p>
+              <p className="text-white text-xl">www.toolvault.com</p>
+              <p className="text-white text-xl">3.971/1 2nd street, anna nagar, Chennai-06</p>
+            </div>
           </div>
 
         </div>

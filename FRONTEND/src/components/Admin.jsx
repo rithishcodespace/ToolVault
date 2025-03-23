@@ -46,42 +46,42 @@ let Admin = () =>{
     {
       navigate(`/editcard/${table}/${id}`);
     }
-    // async function handleDelete(table,id)
-    // {
-    //   const response = await axios.delete(`http://localhost:1234/removecard/${table}/${id}`,{
-    //     headers:{"Content-Type":"application/json"}
-    //   })
-    //   if (response.status === 200) {
-    //     alert("Card deleted successfully");
-    //     switch (table) {
-    //         case "campinggear":
-    //             setcampinggear(campinggear => campinggear.filter(card => card.id !== id));
-    //             break;
-    //         case "winterwear":
-    //             setwinterwear(winterwear => winterwear.filter(card => card.id !== id));
-    //             break;
-    //         case "cameras":
-    //             setcameras(cameras => cameras.filter(card => card.id !== id));
-    //             break;
-    //         case "gamingconsole":
-    //             setgamingconsole(gamingconsole => gamingconsole.filter(card => card.id !== id));
-    //             break;
-    //         case "creatorgear":
-    //             setcreatorgear(creatorgear => creatorgear.filter(card => card.id !== id));
-    //             break;
-    //         case "treckinggear":
-    //             settrekkinggear(trekkinggear => trekkinggear.filter(card => card.id !== id));
-    //             break;
-    //         case "audiovisualequipment":
-    //             setaudio(audio => audio.filter(card => card.id !== id));
-    //             break;
-    //         default:
-    //             alert("Invalid table name!");
-    //     }
-    //     } else {
-    //         alert("An error occurred while deleting the card!");
-    //     }
-    //   }   
+    async function handleDelete(table,id)
+    {
+      const response = await axios.delete(`http://localhost:1234/removecard/${table}/${id}`,{
+        headers:{"Content-Type":"application/json"}
+      })
+      if (response.status === 200) {
+        alert("Card deleted successfully");
+        switch (table) {
+            case "campinggear":
+                setcampinggear(campinggear => campinggear.filter(card => card.id !== id));
+                break;
+            case "winterwear":
+                setwinterwear(winterwear => winterwear.filter(card => card.id !== id));
+                break;
+            case "cameras":
+                setcameras(cameras => cameras.filter(card => card.id !== id));
+                break;
+            case "gamingconsole":
+                setgamingconsole(gamingconsole => gamingconsole.filter(card => card.id !== id));
+                break;
+            case "creatorgear":
+                setcreatorgear(creatorgear => creatorgear.filter(card => card.id !== id));
+                break;
+            case "treckinggear":
+                settrekkinggear(trekkinggear => trekkinggear.filter(card => card.id !== id));
+                break;
+            case "audiovisualequipment":
+                setaudio(audio => audio.filter(card => card.id !== id));
+                break;
+            default:
+                alert("Invalid table name!");
+        }
+        } else {
+            alert("An error occurred while deleting the card!");
+        }
+      }   
     useEffect(()=>{
       async function fetchdata()
       {
@@ -112,36 +112,17 @@ let Admin = () =>{
     ,[])
 
     return(
-        <div>
-          <center className="relative top-4.5">
-            <span className="text-blue-700 text-5xl font-bold">EXPERIENCE</span>&nbsp;
-            <span className="inline text-5xl font-bold">MORE,</span>&nbsp;
-            <span className="text-yellow-500 inline text-5xl font-bold">SPEND</span>&nbsp;
-            <span  className="inline text-5xl font-bold">LESS</span>&nbsp;
-          </center>
-          {/*Like to Rent*/}
-          {LIKETORENT && <div className="overflow-x-auto w-full mt-10 ">
-            <div className="flex gap-6 p-4 w-max">
-              {LIKETORENT.map((card, index) => (
-                <div 
-                  key={index} 
-                  className="h-64 cursor-pointer w-48 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform hover:scale-105"
-                >
-                  <img src={card.img} className="h-36 w-36 object-cover rounded-md" alt={card.title} />
-                  <p className="text-gray-800 font-semibold text-center mt-2">{card.title}</p>
-                </div>
-              ))}
-            </div>
-          </div>}
+        <div className="relative top-26">
+          
           {/*Camping Gear*/}
           <center className="text-mono text-5xl font-bold">Camping Gear</center>
-          <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[405px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/campinggear")}/>
+          <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[15px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/campinggear")}/>
           <div className="overflow-x-auto w-full">
           <div className="flex gap-6 p-4 w-max mt-4">
             {campinggear?.map((card, index) => (
               <div
                 key={index}
-                className="h-[420px] cursor-pointer w-68 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
               >
                 {/* crud */}
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
@@ -158,16 +139,16 @@ let Admin = () =>{
         </div>
          {/*Winter Wear*/}
          <center className="text-mono text-5xl font-bold">Winter Wear</center>
-         <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[945px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/winterwear")}/>
+         <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[545px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/winterwear")}/>
           <div className="overflow-x-auto w-full">
           <div className="flex gap-6 p-4 w-max mt-4">
             {winterwear?.map((card, index) => (
               <div
                 key={index}
-                className="h-[420px] cursor-pointer w-68 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
               >
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer"/>
+                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("winterwear",card.id)}/>
                     <img src="   https://cdn-icons-png.flaticon.com/512/3597/3597075.png " alt="edit" className="h-8 inline cursor-pointer" onClick={()=>handleEdit("winterwear",card.id)}/>
                 </div>
                 <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
@@ -181,16 +162,16 @@ let Admin = () =>{
          
         {/* Cameras */}
         <center className="text-mono text-5xl font-bold">Cameras</center>
-        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[1475px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/cameras")}/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[1077px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/cameras")}/>
           <div className="overflow-x-auto w-full">
           <div className="flex gap-6 p-4 w-max mt-4">
             {cameras?.map((card, index) => (
               <div
                 key={index}
-                className="h-[420px] cursor-pointer w-68 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
               >
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer"/>
+                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("cameras",card.id)}/>
                     <img src="   https://cdn-icons-png.flaticon.com/512/3597/3597075.png " alt="edit" className="h-8 inline cursor-pointer" onClick={()=>handleEdit("cameras",card.id)}/>
                 </div>
                 <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
@@ -204,16 +185,16 @@ let Admin = () =>{
 
         {/* Gaming Console */}
         <center className="text-mono text-5xl font-bold">Gaming Console</center>
-        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[2005px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/gamingconsole")}/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[1610px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/gamingconsole")}/>
           <div className="overflow-x-auto w-full">
             <div className="flex gap-6 p-4 w-max mt-4">
               {gamingconsole?.map((card, index) => (
                 <div
                   key={index}
-                  className="h-[420px] cursor-pointer w-68 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                   <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer"/>
+                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("gamingconsole",card.id)}/>
                     <img src="   https://cdn-icons-png.flaticon.com/512/3597/3597075.png " alt="edit" className="h-8 inline cursor-pointer" onClick={()=>handleEdit("gamingconsole",card.id)}/>
                   </div>
                   <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
@@ -227,16 +208,16 @@ let Admin = () =>{
 
           {/* Creator Gear */}
         <center className="text-mono text-5xl font-bold">Creator Gear</center>
-        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[2535px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/creatorgear")}/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[2143px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/creatorgear")}/>
           <div className="overflow-x-auto w-full">
             <div className="flex gap-6 p-4 w-max mt-4">
               {creatorgear?.map((card, index) => (
                 <div
                   key={index}
-                  className="h-[420px] cursor-pointer w-68 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer"/>
+                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("creatorgear",card.id)}/>
                     <img src="   https://cdn-icons-png.flaticon.com/512/3597/3597075.png " alt="edit" className="h-8 inline cursor-pointer" onClick={()=>handleEdit("creatorgear",card.id)}/>
                 </div>
                   <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
@@ -250,16 +231,16 @@ let Admin = () =>{
 
            {/* Trekking Gear */}
         <center className="text-mono text-5xl font-bold">Trekking Gear</center>
-        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[3070px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/trekkinggear")}/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[2678px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/trekkinggear")}/>
           <div className="overflow-x-auto w-full">
             <div className="flex gap-6 p-4 w-max mt-4">
               {trekkinggear?.map((card, index) => (
                 <div
                   key={index}
-                  className="h-[420px] cursor-pointer w-68 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer"/>
+                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("treckinggear",card.id)}/>
                     <img src="   https://cdn-icons-png.flaticon.com/512/3597/3597075.png " alt="edit" className="h-8 inline cursor-pointer" onClick={()=>handleEdit("treckinggear",card.id)}/>
                 </div>
                   <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
@@ -273,16 +254,16 @@ let Admin = () =>{
           
            {/* Audio Visual Equipments */}
         <center className="text-mono text-5xl font-bold">Audio Visual Equipments</center>
-        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[3610px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/audiovisualequipment")}/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10307/10307926.png" alt="addcardimage" className="h-8 absolute top-[3210px] right-7 cursor-pointer" onClick={()=>navigate("/client/addcard/audiovisualequipment")}/>
           <div className="overflow-x-auto w-full">
             <div className="flex gap-6 p-4 w-max mt-4">
               {audio?.map((card, index) => (
                 <div
                   key={index}
-                  className="h-[420px] cursor-pointer w-68 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer"/>
+                    <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("audiovisualequipment",card.id)}/>
                     <img src="   https://cdn-icons-png.flaticon.com/512/3597/3597075.png " alt="edit" className="h-8 inline cursor-pointer" onClick={()=>handleEdit("audiovisualequipments",card.id)}/>
                 </div>
                   <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />

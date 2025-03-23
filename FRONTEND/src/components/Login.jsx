@@ -48,13 +48,13 @@ let Login = () =>{
 
     return(
         <div className="flex justify-center items-center h-screen w-screen">
-          <div className=" z-10 flex justify-evenly flex-col items-center h-[450px] w-[430px] rounded-lg absolute top-[130px] shadow-2xl shadow-slate-400">
-            <p className="text-blue-950 text-2xl">Login</p>
-            <input ref={username} type="text" placeholder="   Username" className="rounded-md w-72 h-14 border-2 border-black-700 pl-2"/>
-            <input ref={emailId} type="text" placeholder="   EmailId" className="rounded-md w-72 h-14 border-2 border-black-700 pl-2"/>
-            <input ref={password} type="text" placeholder="   Password" className="rounded-md w-72 h-14 border-2 border-black-700 pl-2"/>
-            <p>Are you new to ToolVault <span className="text-blue-700 cursor-pointer" onClick={()=>navigate("/signup")}>signup</span></p>
-            <button className="p-2 bg-blue-950 cursor-pointer rounded-md border w-72 h-12 text-white" onClick={handleLogin}>Login</button>
+          <div className=" z-10 flex justify-evenly flex-col items-center h-[550px] w-[500px] rounded-lg bg-slate-300 absolute top-[130px]">
+            <p className="text-blue-950 text-3xl font-mono">Login</p>
+            <input ref={username} type="text" placeholder="   Username" className="rounded-md w-[450px] bg-white h-20  pl-2"/>
+            <input ref={emailId} type="text" placeholder="   EmailId" className="rounded-md w-[450px] h-20 bg-white pl-2"/>
+            <input ref={password} type="text" placeholder="   Password" className="rounded-md w-[450px] bg-white h-20 pl-2"/>
+            <p>Are you new to ToolVault <span className="text-blue-700 cursor-pointer underline" onClick={()=>navigate("/signup")}>signup</span></p>
+            <button className="p-2 bg-blue-950 cursor-pointer rounded-md border w-[450px] h-20 font-mono text-xl text-white" onClick={handleLogin}>Login</button>
           </div>
         </div>
     )

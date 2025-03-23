@@ -43,15 +43,15 @@ let Signup = () =>{
 
     return(
         <div className="flex justify-center items-center h-screen w-screen">
-          <div className=" z-10 flex justify-evenly flex-col items-center h-[450px] w-[430px] rounded-lg absolute top-[130px] shadow-2xl shadow-slate-400">
-            <p className="text-blue-950 text-2xl">Signup</p>
-            <input ref={username} type="text" placeholder="   Username" className="rounded-md w-72 h-14 border-2 border-black-700 pl-2"/>
-            <input ref={emailId} type="text" placeholder="   EmailId" className="rounded-md w-72 h-14 border-2 border-black-700 pl-2"/>
-            <input ref={password} type="text" placeholder="   Password" className="rounded-md w-72 h-14 border-2 border-black-700 pl-2"/>
+          <div className=" z-10 flex justify-evenly flex-col items-center h-[550px] w-[500px] rounded-lg absolute top-[130px] bg-slate-300">
+            <p className="text-blue-950 text-3xl font-mono">Signup</p>
+            <input ref={username} type="text" placeholder="   Username" className="rounded-md bg-white w-[450px] h-20 pl-2"/>
+            <input ref={emailId} type="text" placeholder="   EmailId" className="rounded-md w-[450px] bg-white h-20 pl-2"/>
+            <input ref={password} type="text" placeholder="   Password" className="rounded-md w-[450px] h-20 bg-white pl-2"/>
             <div>
               <input type="checkbox" className="inline relative top-0.5"/>&nbsp;<p className="inline">I agree to <span className="text-blue-700 underline">Terms and Conditions</span></p>
             </div>
-            <button className="p-2 bg-blue-950 cursor-pointer rounded-md border w-72 h-12 text-white" onClick={handleSignup}>Signup</button>
+            <button className="p-2 bg-blue-950 cursor-pointer rounded-md border w-[450px] h-20 text-xl font-mono text-white" onClick={handleSignup}>Signup</button>
           </div>
         </div>
     )
