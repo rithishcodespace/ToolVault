@@ -118,12 +118,14 @@ let Home = () =>{
 
     return(
         <div className="relative top-24">
-          <center className="relative top-4.5">
-            <span className="text-blue-700 text-5xl font-bold">EXPERIENCE</span>&nbsp;
-            <span className="inline text-5xl font-bold">MORE,</span>&nbsp;
-            <span className="text-yellow-500 inline text-5xl font-bold">SPEND</span>&nbsp;
-            <span  className="inline text-5xl font-bold">LESS</span>&nbsp;
-          </center>
+          <RevealOnScroll>
+            <center className="relative top-4.5">
+              <span className="text-blue-700 text-5xl font-bold">EXPERIENCE</span>&nbsp;
+              <span className="inline text-5xl font-bold">MORE,</span>&nbsp;
+              <span className="text-yellow-500 inline text-5xl font-bold">SPEND</span>&nbsp;
+              <span  className="inline text-5xl font-bold">LESS</span>&nbsp;
+            </center>
+          </RevealOnScroll>
           {/*Like to Rent*/}
           {LIKETORENT && <div className="overflow-x-auto w-full mt-10 ">
             {/* <RevealOnScroll> */}
@@ -312,18 +314,18 @@ let Home = () =>{
           </div>
           <RevealOnScroll>
             <div className="text-gray-700 bg-slate-200 h-[350px]  w-screen pl-12 pt-10">
-              <p className="font-semibold text-2xl text-black">Welcome to Sharepal </p><br />
-              <p className="font-serif text-sm">
+              <p className="font-semibold text-2xl text-black">Welcome to ToolVault </p><br />
+              <p className="font-serif text-md">
               India, one of the best countries to live in the world. It’s a country which is well known for its culture and cuisine. SharePal is a rental startup for all your lifestyle needs. Be it travel, photography, entertainment or fitness, you can rent all the latest products.
               </p>
               <br />
-              <p className="font-serif text-sm">
+              <p className="font-serif text-md">
               SharePal is a leading rental platform with a pan-India presence. We offer Trekking Gear, Riding Gear, DSLR Camera, GoPro Camera, PS4 Console, Xbox Console, PS4 Games on rent in Chennai.
               </p><br />
-              <p className="font-serif text-sm">
+              <p className="font-serif text-md">
               SharePal makes it easier for you to rent from us. All you need to do is choose the product whatever you need, add them to your cart, and check out. Rental products will be delivered to your home with full safety measures.
               </p><br />
-              <p className="font-serif text-sm">
+              <p className="font-serif text-md">
               We offer rental services all over India like Chennai, Hyderabad, Bangalore, Mumbai, Delhi, Kolkata, Pune, Gandhinagar, Faridabad, Ahmedabad and many more places.
               </p>
             </div>
@@ -331,14 +333,14 @@ let Home = () =>{
 
           <div className="h-[420px] w-screen bg-blue-950 flex ">
             <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-36">
-              <p className="text-3xl text-white font-mono underline">ToolVault</p>
+              <p className="text-3xl text-white font-mono underline underline-offset-12">ToolVault</p>
               <p className="text-white text-xl">About us</p>
               <p className="text-white text-xl">Why ToolVault</p>
               <p className="text-white text-xl">Careers</p>
               <p className="text-white text-xl">Sitemap</p>
             </div>
             <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-[500px]">
-              <p className="text-3xl text-white font-mono underline">Information</p>
+              <p className="text-3xl text-white font-mono underline underline-offset-12">Information</p>
               <p className="text-white text-xl">How it works</p>
               <p className="text-white text-xl">FAQs</p>
               <p className="text-white text-xl">Verification</p>
@@ -346,7 +348,7 @@ let Home = () =>{
               <p className="text-white text-xl">Cancellation Policy</p>
             </div>
             <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-[900px]">
-              <p className="text-3xl text-white font-mono underline">Policies</p>
+              <p className="text-3xl text-white font-mono underline underline-offset-12">Policies</p>
               <p className="text-white text-xl">Rental Terms & Conditions</p>
               <p className="text-white text-xl">Shipping Policy</p>
               <p className="text-white text-xl">Damage Policy</p>
@@ -354,7 +356,7 @@ let Home = () =>{
               <p className="text-white text-xl">Privacy Policy</p>
             </div>
             <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-[1250px]">
-              <p className="text-3xl text-white font-mono underline">Need Help?</p>
+              <p className="text-3xl text-white font-mono underline underline-offset-12">Need Help?</p>
               <p className="text-white text-xl">Contact +91 9952252304</p>
               <p className="text-white text-xl">www.toolvault.com</p>
               <p className="text-white text-xl">3.971/1 2nd street, anna nagar, Chennai-06</p>
