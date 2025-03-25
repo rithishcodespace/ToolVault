@@ -122,7 +122,7 @@ let Admin = () =>{
             {campinggear?.map((card, index) => (
               <div
                 key={index}
-                className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
               >
                 {/* crud */}
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
@@ -145,7 +145,7 @@ let Admin = () =>{
             {winterwear?.map((card, index) => (
               <div
                 key={index}
-                className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
               >
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
                     <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("winterwear",card.id)}/>
@@ -168,7 +168,7 @@ let Admin = () =>{
             {cameras?.map((card, index) => (
               <div
                 key={index}
-                className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
               >
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
                     <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("cameras",card.id)}/>
@@ -191,7 +191,7 @@ let Admin = () =>{
               {gamingconsole?.map((card, index) => (
                 <div
                   key={index}
-                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                   <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
                     <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("gamingconsole",card.id)}/>
@@ -214,7 +214,7 @@ let Admin = () =>{
               {creatorgear?.map((card, index) => (
                 <div
                   key={index}
-                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
                     <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("creatorgear",card.id)}/>
@@ -237,7 +237,7 @@ let Admin = () =>{
               {trekkinggear?.map((card, index) => (
                 <div
                   key={index}
-                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
                     <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("treckinggear",card.id)}/>
@@ -260,7 +260,7 @@ let Admin = () =>{
               {audio?.map((card, index) => (
                 <div
                   key={index}
-                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[420px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                 <div className="flex justify-end w-full absoute top-2 space-x-1 right-2">
                     <img src="https://cdn-icons-png.flaticon.com/512/6460/6460112.png" alt="delete" className="h-8 cursor-pointer" onClick={()=>handleDelete("audiovisualequipment",card.id)}/>

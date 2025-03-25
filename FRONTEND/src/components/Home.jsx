@@ -157,7 +157,7 @@ let Home = () =>{
               <RevealOnScroll>
                 <div
                   key={index}
-                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-600 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-600 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                   <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                   <p className="text-gray-800 font-semibold text-center  mt-2 mb-2 line-clamp-2">{card.name}</p>
@@ -180,7 +180,7 @@ let Home = () =>{
               <RevealOnScroll>
                 <div
                   key={index}
-                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                   <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                   <p className="text-gray-800 font-semibold mb-2 text-center mt-2">{card.name}</p>
@@ -204,7 +204,7 @@ let Home = () =>{
               <RevealOnScroll>
                 <div
                   key={index}
-                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
                   <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                   <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
@@ -228,7 +228,7 @@ let Home = () =>{
                 <RevealOnScroll>
                   <div
                     key={index}
-                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                   >
                     <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                     <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
@@ -252,7 +252,7 @@ let Home = () =>{
                 <RevealOnScroll>
                   <div
                     key={index}
-                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                   >
                     <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                     <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
@@ -276,7 +276,7 @@ let Home = () =>{
                 <RevealOnScroll>
                   <div
                     key={index}
-                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                   >
                     <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                     <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
@@ -300,7 +300,7 @@ let Home = () =>{
                 <RevealOnScroll>
                   <div
                     key={index}
-                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-lg shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                   >
                     <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                     <p className="text-gray-800 mb-2 font-semibold line-clamp-2 text-center mt-2">{card.name}</p>
