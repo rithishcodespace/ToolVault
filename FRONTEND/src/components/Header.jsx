@@ -10,8 +10,9 @@ const Header = () => {
     const selector = useSelector((store)=>store.AuthSlice);
     const[searchItem,setsearchItem] = useState("");
 
-    function handleLogout() {
+    async function handleLogout() {
         dispatch(logout());
+        // await axios.get("http://localhost:1234/logout");
         navigate("/");
     }
 

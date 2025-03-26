@@ -56,28 +56,32 @@ let Cart = () =>{
           <div className=" inline-block ml-10">
             { cartdata &&
                cartdata.map((card, index) => (
-                <div
-                  key={index}
-                  className="w-[1100px] p-4 bg-white border-b border-blue-950 flex flex-row items-center gap-10 shadow-md rounded-lg">
-
-                  <div className="flex items-center gap-4">
-                    <img src={card.img} className="h-52 w-auto rounded-lg" />
-                    <p className="w-36 text-lg font-semibold text-gray-800">{card.name}</p>
-                  </div>
-              
-                  <p className="w-60 text-sm text-gray-600">{card.details}</p>
-              
-                  <p className="text-xl font-bold text-blue-700">₹{card.rate}</p>
-
-                  {/* Quantity */}
-                  <div className="pt-2 pb-2 pl-5">
-                    <button className="text-3xl cursor-pointer bg-blue-200 active:bg-blue-500 inline hover:bg-black hover:text-white w-12 h-12 rounded-xl" onClick={()=>increaseNeededStock(card.id,card.Tablename)}>+</button>
-                      <p className="text-xl inline p-4">{card.stock}</p>
-                    <button className="text-3xl inline bg-blue-200 active:bg-blue-500 cursor-pointer hover:bg-black hover:text-white w-12 h-12  rounded-xl" onClick={()=>decreaseNeededStock(card.id,card.Tablename)}>-</button>
-                  </div><br />
-
-                  <p className="text-xl font-bold text-blue-700">₹{card.rate * card.stock}</p>
+                <div className="w-[1100px] p-4 bg-white border-b border-blue-950 grid grid-cols-[1fr_2fr_1fr_1fr_1fr] items-center gap-4 shadow-md rounded-lg">
+  
+                <div className="flex items-center gap-4">
+                  <img src={card.img} className="h-52 w-52 object-cover rounded-lg" />
+                  <p className="w-36 text-lg font-semibold text-gray-800 truncate">{card.name}</p>
                 </div>
+
+                <p className="w-60 min-w-0 truncate text-sm text-gray-600">{card.details}</p>
+
+                <p className="text-xl font-bold text-blue-700">₹{card.rate}</p>
+
+                {/* Quantity */}
+                <div className="flex flex-row items-center">
+                  <button className="text-3xl cursor-pointer bg-blue-200 active:bg-blue-500 hover:bg-black hover:text-white w-12 h-12 rounded-xl"
+                    onClick={()=>increaseNeededStock(card.id, card.Tablename)}>+</button>
+                  
+                  <p className="text-xl p-4">{card.stock}</p>
+
+                  <button className="text-3xl bg-blue-200 active:bg-blue-500 cursor-pointer hover:bg-black hover:text-white w-12 h-12 rounded-xl"
+                    onClick={()=>decreaseNeededStock(card.id, card.Tablename)}>-</button>
+                </div>
+
+                <p className="text-xl font-bold text-blue-700">₹{card.rate * card.stock}</p>
+
+              </div>
+
               ))   
             }
           </div>

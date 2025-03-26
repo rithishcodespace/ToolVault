@@ -20,6 +20,7 @@ const About = () => {
                 name: data.name,
                 details: data.details,
                 tablename: table,
+                rate:data.rate,
             },
             {
                 headers: { "Content-Type": "application/json" },

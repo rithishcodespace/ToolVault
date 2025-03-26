@@ -48,6 +48,57 @@ let Home = () =>{
     {
       navigate(`/client/about/audiovisualequipment/${id}`)
     }
+    async function handlelike(table,id)
+    {
+      const response = await axios.patch(`http://localhost:1234/like/dislike/${table}/${id}`,{
+        headers:{"Content-Type":"application/json"}
+      })
+      if(response.status===200)
+      {
+        if(table==="campinggear")
+        {
+          setcampinggear((campinggear)=>(
+            campinggear.map((card)=>(card.id==id) ? {...card,liked: card.liked==1 ? 0 : 1} : card)
+          ))
+        }
+        else if(table==="winterwear")
+        {
+          setwinterwear((winterwear)=>(
+            winterwear.map((card)=>(card.id==id) ? {...card,liked: card.liked==1 ? 0 : 1} : card)
+          ))
+        }
+        else if(table==="cameras")
+        {
+          setcameras((cameras)=>(
+            cameras.map((card)=>(card.id==id) ? {...card,liked: card.liked==1 ? 0 : 1} : card)
+          ))
+        }
+        else if(table==="treckinggear")
+        {
+          settrekkinggear((trekkinggear)=>(
+            trekkinggear.map((card)=>(card.id==id) ? {...card,liked: card.liked==1 ? 0 : 1} : card)
+          ))
+        }
+        else if(table==="audiovisualequipment")
+        {
+          setaudio((audio)=>(
+            audio.map((card)=>(card.id==id) ? {...card,liked: card.liked==1 ? 0 : 1} : card)
+          ))
+        }
+        else if(table==="gamingconsole")
+        {
+          gamingconsole((gamingconsole)=>(
+            setgamingconsole.map((card)=>(card.id==id) ? {...card,liked: card.liked==1 ? 0 : 1} : card)
+          ))
+        }
+        else if(table==="creatorgear")
+        {
+          setcreatorgear((creatorgear)=>(
+            creatorgear.map((card)=>(card.id==id) ? {...card,liked: card.liked==1 ? 0 : 1} : card)
+          ))
+        }
+      }
+    }
   
     useEffect(()=>{
       async function fetchdata()
@@ -157,8 +208,10 @@ let Home = () =>{
               <RevealOnScroll>
                 <div
                   key={index}
-                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-600 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[430px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-600 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
+                  {card.liked === 1 && <img src="https://cdn-icons-png.flaticon.com/512/9484/9484251.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("campinggear",card.id)}/>}
+                  {card.liked === 0 && <img src="https://cdn-icons-png.flaticon.com/512/1216/1216575.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("campinggear",card.id)}/>}
                   <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                   <p className="text-gray-800 font-semibold text-center  mt-2 mb-2 line-clamp-2">{card.name}</p>
                   <div className="h-20"><p className="font-mono text-sm">{card.details}</p></div>
@@ -180,8 +233,10 @@ let Home = () =>{
               <RevealOnScroll>
                 <div
                   key={index}
-                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[430px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
+                  {card.liked === 1 && <img src="https://cdn-icons-png.flaticon.com/512/9484/9484251.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("winterwear",card.id)}/>}
+                  {card.liked === 0 && <img src="https://cdn-icons-png.flaticon.com/512/1216/1216575.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("winterwear",card.id)}/>}
                   <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                   <p className="text-gray-800 font-semibold mb-2 text-center mt-2">{card.name}</p>
                   <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
@@ -204,8 +259,10 @@ let Home = () =>{
               <RevealOnScroll>
                 <div
                   key={index}
-                  className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                  className="h-[430px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                 >
+                  {card.liked === 1 && <img src="https://cdn-icons-png.flaticon.com/512/9484/9484251.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("cameras",card.id)}/>}
+                  {card.liked === 0 && <img src="https://cdn-icons-png.flaticon.com/512/1216/1216575.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("cameras",card.id)}/>}
                   <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                   <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
                   <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
@@ -228,8 +285,10 @@ let Home = () =>{
                 <RevealOnScroll>
                   <div
                     key={index}
-                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                    className="h-[430px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                   >
+                    {card.liked === 1 && <img src="https://cdn-icons-png.flaticon.com/512/9484/9484251.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("gamingconsole",card.id)}/>}
+                    {card.liked === 0 && <img src="https://cdn-icons-png.flaticon.com/512/1216/1216575.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("gamingconsole",card.id)}/>}
                     <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                     <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
                     <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
@@ -252,8 +311,10 @@ let Home = () =>{
                 <RevealOnScroll>
                   <div
                     key={index}
-                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                    className="h-[430px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                   >
+                    {card.liked === 1 && <img src="https://cdn-icons-png.flaticon.com/512/9484/9484251.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("creatorgear",card.id)}/>}
+                    {card.liked === 0 && <img src="https://cdn-icons-png.flaticon.com/512/1216/1216575.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("creatorgear",card.id)}/>}
                     <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                     <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
                     <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
@@ -276,8 +337,10 @@ let Home = () =>{
                 <RevealOnScroll>
                   <div
                     key={index}
-                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                    className="h-[430px] cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                   >
+                    {card.liked === 1 && <img src="https://cdn-icons-png.flaticon.com/512/9484/9484251.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("treckinggear",card.id)}/>}
+                    {card.liked === 0 && <img src="https://cdn-icons-png.flaticon.com/512/1216/1216575.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("treckinggear",card.id)}/>}
                     <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                     <p className="text-gray-800 mb-2 font-semibold text-center mt-2">{card.name}</p>
                     <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
@@ -300,8 +363,10 @@ let Home = () =>{
                 <RevealOnScroll>
                   <div
                     key={index}
-                    className="h-96 cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
+                    className="h-[430px]cursor-pointer w-78 bg-white border-[0.5px] border-gray-700 rounded-2xl shadow-lg p-3 flex flex-col items-center transition-transform duration-200 hover:scale-105  "
                   >
+                    {card.liked === 1 && <img src="https://cdn-icons-png.flaticon.com/512/9484/9484251.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("audiovisualequipment",card.id)}/>}
+                    {card.liked === 0 && <img src="https://cdn-icons-png.flaticon.com/512/1216/1216575.png" alt="redheart" className="h-7 pl-62" onClick={()=>handlelike("audiovisualequipment",card.id)}/>}
                     <img src={card.img} alt={card.name} className="h-52 w-52 object-cover rounded-md" />
                     <p className="text-gray-800 mb-2 font-semibold line-clamp-2 text-center mt-2">{card.name}</p>
                     <div className="h-20"><p className="font-mono text-sm line-clamp-2">{card.details}</p></div>
@@ -332,14 +397,14 @@ let Home = () =>{
           </RevealOnScroll>
 
           <div className="h-[420px] w-screen bg-blue-950 flex ">
-            <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-36">
+            <div className="h-[250px] flex flex-col gap-8 absolute top-[4600px] left-36">
               <p className="text-3xl text-white font-mono underline underline-offset-12">ToolVault</p>
               <p className="text-white text-xl">About us</p>
               <p className="text-white text-xl">Why ToolVault</p>
               <p className="text-white text-xl">Careers</p>
               <p className="text-white text-xl">Sitemap</p>
             </div>
-            <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-[500px]">
+            <div className="h-[250px] flex flex-col gap-8 absolute top-[4600px] left-[500px]">
               <p className="text-3xl text-white font-mono underline underline-offset-12">Information</p>
               <p className="text-white text-xl">How it works</p>
               <p className="text-white text-xl">FAQs</p>
@@ -347,7 +412,7 @@ let Home = () =>{
               <p className="text-white text-xl">Refund Process</p>
               <p className="text-white text-xl">Cancellation Policy</p>
             </div>
-            <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-[900px]">
+            <div className="h-[250px] flex flex-col gap-8 absolute top-[4600px] left-[900px]">
               <p className="text-3xl text-white font-mono underline underline-offset-12">Policies</p>
               <p className="text-white text-xl">Rental Terms & Conditions</p>
               <p className="text-white text-xl">Shipping Policy</p>
@@ -355,7 +420,7 @@ let Home = () =>{
               <p className="text-white text-xl">Terms of Use</p>
               <p className="text-white text-xl">Privacy Policy</p>
             </div>
-            <div className="h-[250px] flex flex-col gap-8 absolute top-[4260px] left-[1250px]">
+            <div className="h-[250px] flex flex-col gap-8 absolute top-[4600px] left-[1250px]">
               <p className="text-3xl text-white font-mono underline underline-offset-12">Need Help?</p>
               <p className="text-white text-xl">Contact +91 9952252304</p>
               <p className="text-white text-xl">www.toolvault.com</p>

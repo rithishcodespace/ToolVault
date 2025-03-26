@@ -12,7 +12,7 @@ let Signup = () =>{
     function handleSignup(e)
     {
        try{
-         if(username.current.value!="" && emailId.current.value!="" && password.current.value!="")
+         if(username.current.value.trim()!="" && emailId.current.value.trim()!="" && password.current.value.trim()!="")
          {
            axios.post("http://localhost:1234/signup",
             {
@@ -26,7 +26,8 @@ let Signup = () =>{
            })
            .then((response)=>{
             if(response.status == 200){
-              alert("🧰 Welcome aboard, {username}! Your toolkit is ready to go! 🛠️");
+              alert("🧰 Welcome aboard, Your toolkit is ready to go! 🛠️");
+              console.log(username.current.value);
               navigate("/");
             }
             else{
@@ -47,7 +48,7 @@ let Signup = () =>{
             <p className="text-blue-950 text-3xl font-mono">Signup</p>
             <input ref={username} type="text" placeholder="   Username" className="rounded-md bg-white w-[450px] h-20 pl-2"/>
             <input ref={emailId} type="text" placeholder="   EmailId" className="rounded-md w-[450px] bg-white h-20 pl-2"/>
-            <input ref={password} type="text" placeholder="   Password" className="rounded-md w-[450px] h-20 bg-white pl-2"/>
+            <input ref={password} type="password" placeholder="   Password" className="rounded-md w-[450px] h-20 bg-white pl-2"/>
             <div>
               <input type="checkbox" className="inline relative top-0.5"/>&nbsp;<p className="inline">I agree to <span className="text-blue-700 underline">Terms and Conditions</span></p>
             </div>

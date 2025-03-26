@@ -1,6 +1,7 @@
 const express = require("express");
 const fetchRoute = express.Router();
 const db = require("../database")
+const userAuth = require("../middlewares/userAuth")
 
 fetchRoute.get("/get/:table",(req,res)=>{
     try{
@@ -63,5 +64,11 @@ fetchRoute.get("/getminicards",(req,res)=>{
        res.status(500).send({"errorMessage":error});
     }
 })
+
+fetchRoute.get('/logout', (req, res) => {
+    res.clearCookie('token'); // Remove 'token' cookie
+    res.send('Logged out and cookie cleared!');
+});
+
 
 module.exports = fetchRoute;

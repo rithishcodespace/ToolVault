@@ -1,6 +1,7 @@
 const express = require("express");
 const patchRoute = express.Router();
 const db = require("../database");
+const userAuth = require("../middlewares/userAuth")
 
 patchRoute.patch("/editcard/:table/:id",(req,res)=>{
     try{
@@ -19,7 +20,7 @@ patchRoute.patch("/editcard/:table/:id",(req,res)=>{
     }
 })
 
-patchRoute.patch("/addCartItemsCount/:table/:id", (req, res) => {
+patchRoute.patch("/addCartItemsCount/:table/:id",(req, res) => {
   try {
     const table = req.params.table;
     const id = req.params.id;
@@ -55,7 +56,7 @@ patchRoute.patch("/addCartItemsCount/:table/:id", (req, res) => {
   }
 });
 
-patchRoute.patch("/removeCartItemsCount/:table/:id", (req, res) => {
+patchRoute.patch("/removeCartItemsCount/:table/:id",(req, res) => {
   try {
     const table = req.params.table;
     const id = req.params.id;
@@ -90,6 +91,22 @@ patchRoute.patch("/removeCartItemsCount/:table/:id", (req, res) => {
     res.status(500).send({ errorMessage: error });
   }
 });
+
+patchRoute.patch("/like/dislike/:table/:id",(req,res)=>{
+  try{
+    const id = req.params.id;
+    const table = req.params.table;
+    let sql = "update ?? set liked = liked ^ 1 where id = ?";
+    db.query(sql,[table,id],(error,result)=>{
+      if(error) res.status(500).send({"errorMessage":error});
+      else res.status(200).send("liked status updated successfully");
+    })
+  }
+  catch(error)
+  {
+    res.status(500).send({"errorMessage":error});
+  }
+})
 
 
 module.exports = patchRoute;

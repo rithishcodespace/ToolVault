@@ -1,11 +1,12 @@
 const express = require("express");
 const postRoute = express.Router();
 const db = require("../database");
+const userAuth = require("../middlewares/userAuth")
 
 postRoute.post("/addtocart",(req,res)=>{
     try{
-      let sql = "insert into cart(id,img,name,details,tablename) values (?,?,?,?,?)";
-      const values = [req.body.id,req.body.img,req.body.name,req.body.details,req.body.tablename];
+      let sql = "insert into cart(id,img,name,details,tablename,rate) values (?,?,?,?,?,?)";
+      const values = [req.body.id,req.body.img,req.body.name,req.body.details,req.body.tablename,req.body.rate];
       db.query(sql,values,(error,result)=>{
         if(error)res.status(500).send("item cannot be added to cart"); 
         else res.status(200).send("Added to cart successfully!");

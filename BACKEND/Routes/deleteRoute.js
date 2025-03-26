@@ -1,6 +1,7 @@
 const express = require("express");
 const deleteRoute = express.Router();
 const db = require("../database");
+const userAuth = require("../middlewares/userAuth")
 
 deleteRoute.delete("/removecard/:table/:id",(req,res)=>{
     try{
