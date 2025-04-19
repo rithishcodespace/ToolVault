@@ -1,7 +1,9 @@
 const express = require("express");
 const fetchRoute = express.Router();
 const db = require("../database")
-const userAuth = require("../middlewares/userAuth")
+const jwtAuth = require("../middlewares/jwtAuth");
+
+// fetchRoute.use("/",jwtAuth);
 
 fetchRoute.get("/get/:table",(req,res)=>{
     try{

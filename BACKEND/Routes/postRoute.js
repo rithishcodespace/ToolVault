@@ -1,7 +1,7 @@
 const express = require("express");
 const postRoute = express.Router();
 const db = require("../database");
-const userAuth = require("../middlewares/userAuth")
+const jwtAuth = require("../middlewares/jwtAuth");
 
 postRoute.post("/addtocart",(req,res)=>{
     try{

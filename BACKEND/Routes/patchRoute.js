@@ -1,7 +1,7 @@
 const express = require("express");
 const patchRoute = express.Router();
 const db = require("../database");
-const userAuth = require("../middlewares/userAuth")
+const jwtAuth = require("../middlewares/jwtAuth");
 
 patchRoute.patch("/editcard/:table/:id",(req,res)=>{
     try{

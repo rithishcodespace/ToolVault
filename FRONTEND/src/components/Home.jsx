@@ -104,14 +104,14 @@ let Home = () =>{
       async function fetchdata()
       {
         const[MiniRes,CampingRes,WinterRes,CamerasRes,GamingRes,CreatorRes,TrekkingRes,AudioRes] = await Promise.all([
-          axios.get("http://localhost:1234/getminicards",{headers:{"Content-Type":"application/json"}}),
-          axios.get("http://localhost:1234/get/campinggear", { headers: { "Content-type": "application/json" } }),
-          axios.get("http://localhost:1234/get/winterwear", { headers: { "Content-type": "application/json" } }),
-          axios.get("http://localhost:1234/get/cameras", { headers: { "Content-type": "application/json" } }),
-          axios.get("http://localhost:1234/get/gamingconsole", { headers: { "Content-type": "application/json" } }),
-          axios.get("http://localhost:1234/get/creatorgear", { headers: { "Content-type": "application/json" } }),
-          axios.get("http://localhost:1234/get/treckinggear", { headers: { "Content-type": "application/json" } }),
-          axios.get("http://localhost:1234/get/audiovisualequipment", { headers: { "Content-type": "application/json" } }),
+          axios.get("http://localhost:1234/getminicards",{headers:{"Content-Type":"application/json"},withCredentials: true}),
+          axios.get("http://localhost:1234/get/campinggear", { headers: { "Content-type": "application/json" },withCredentials: true }),
+          axios.get("http://localhost:1234/get/winterwear", { headers: { "Content-type": "application/json" },withCredentials: true }),
+          axios.get("http://localhost:1234/get/cameras", { headers: { "Content-type": "application/json" },withCredentials: true }),
+          axios.get("http://localhost:1234/get/gamingconsole", { headers: { "Content-type": "application/json" },withCredentials: true }),
+          axios.get("http://localhost:1234/get/creatorgear", { headers: { "Content-type": "application/json" },withCredentials: true }),
+          axios.get("http://localhost:1234/get/treckinggear", { headers: { "Content-type": "application/json" },withCredentials: true }),
+          axios.get("http://localhost:1234/get/audiovisualequipment", { headers: { "Content-type": "application/json" },withCredentials: true }),
         ])
 
         if(MiniRes.status == 200) SETLIKETORENT(MiniRes.data);
